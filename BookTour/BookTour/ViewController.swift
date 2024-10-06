@@ -155,6 +155,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 for document in querySnapshot!.documents {
                     let data = document.data()
                     let tour = Tour(
+                        documentID: document.documentID,
                         danhMucID: data["DanhMucID"] as? String ?? "",
                         ghiChu: data["GhiChu"] as? String ?? "",
                         giaTour: data["GiaTour"] as? String ?? "",
@@ -183,6 +184,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 for document in querySnapshot!.documents {
                     let data = document.data()
                     let tour = Tour(
+                        documentID: document.documentID,
                         danhMucID: data["DanhMucID"] as? String ?? "",
                         ghiChu: data["GhiChu"] as? String ?? "",
                         giaTour: data["GiaTour"] as? String ?? "",

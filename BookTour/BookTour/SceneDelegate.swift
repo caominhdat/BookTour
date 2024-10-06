@@ -35,7 +35,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 self.window = window
                 window.makeKeyAndVisible()
 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     let mainViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
                     window.rootViewController = mainViewController
                 }

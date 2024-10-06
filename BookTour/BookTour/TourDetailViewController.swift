@@ -79,6 +79,17 @@ class TourDetailViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    private let scheduleButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Lịch trình", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        button.backgroundColor = .systemBlue
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 8
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,6 +98,7 @@ class TourDetailViewController: UIViewController {
         
         // Xử lý sự kiện cho nút "Đặt"
         bookButton.addTarget(self, action: #selector(bookTour), for: .touchUpInside)
+        scheduleButton.addTarget(self, action: #selector(showSchedule), for: .touchUpInside)
 
         // Hiển thị dữ liệu tour
         if let tour = tour {
@@ -107,6 +119,22 @@ class TourDetailViewController: UIViewController {
                 }.resume()
             }
         }
+    }
+
+    @objc private func showSchedule() {
+        // Kiểm tra nếu tour tồn tại
+        guard let tour = tour else {
+            print("Không có dữ liệu tour để hiển thị lịch trình.")
+            return
+        }
+
+        // Lấy documentID từ tour (nếu nó không phải là Optional)
+        let tourID = tour.documentID
+
+        // Mở màn hình lịch trình và truyền documentID
+        let scheduleVC = ScheduleViewController()
+        scheduleVC.tourID = tourID  // Truyền documentID vào ScheduleViewController
+        navigationController?.pushViewController(scheduleVC, animated: true)
     }
 
     @objc private func bookTour() {
@@ -167,7 +195,6 @@ class TourDetailViewController: UIViewController {
         }
     }
 
-
     private func setupUI() {
         view.addSubview(scrollView)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -181,7 +208,15 @@ class TourDetailViewController: UIViewController {
         contentView.addSubview(priceLabel)
         contentView.addSubview(durationLabel)
         contentView.addSubview(noteLabel)
-        contentView.addSubview(bookButton)
+
+        // Tạo UIStackView chứa các nút
+        let buttonStackView = UIStackView(arrangedSubviews: [scheduleButton, bookButton])
+        buttonStackView.axis = .horizontal
+        buttonStackView.spacing = 20
+        buttonStackView.distribution = .fillEqually
+        buttonStackView.translatesAutoresizingMaskIntoConstraints = false
+
+        contentView.addSubview(buttonStackView)
 
         // Ràng buộc cho scrollView
         NSLayoutConstraint.activate([
@@ -225,13 +260,12 @@ class TourDetailViewController: UIViewController {
             noteLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             noteLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
 
-            // Ràng buộc cho nút book
-            bookButton.topAnchor.constraint(equalTo: noteLabel.bottomAnchor, constant: 20),
-            bookButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            bookButton.widthAnchor.constraint(equalToConstant: 150),
-            bookButton.heightAnchor.constraint(equalToConstant: 50),
-            bookButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20) // Đảm bảo nút không bị che khuất
+            // Ràng buộc cho stack view chứa nút lịch trình và đặt
+            buttonStackView.topAnchor.constraint(equalTo: noteLabel.bottomAnchor, constant: 20),
+            buttonStackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            buttonStackView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.8),
+            buttonStackView.heightAnchor.constraint(equalToConstant: 50),
+            buttonStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
         ])
     }
 }
-

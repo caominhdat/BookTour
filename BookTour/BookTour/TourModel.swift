@@ -8,6 +8,7 @@
 import Foundation
 // Model for Tour
 struct Tour {
+    let documentID: String
     let danhMucID: String
     let ghiChu: String
     let giaTour: String

@@ -39,19 +39,31 @@
 		9F345C592C9EA6EA0089D5F6 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F345C582C9EA6EA0089D5F6 /* TabController.swift */; };
 		9F51A1952C98512700FEAA3F /* TourModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F51A1942C98512700FEAA3F /* TourModel.swift */; };
 		9F51A19D2C98761100FEAA3F /* TourCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F51A19C2C98761100FEAA3F /* TourCollectionViewCell.swift */; };
+		9F6ADC342CAE7072001993B7 /* BookingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6ADC332CAE7072001993B7 /* BookingCell.swift */; };
 		9F6AFA9E2CA11E18007F2D6A /* UpdateInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6AFA9D2CA11E18007F2D6A /* UpdateInfoViewController.swift */; };
 		9F6AFAA02CA2764D007F2D6A /* TourDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6AFA9F2CA2764D007F2D6A /* TourDetailViewController.swift */; };
+		9F6C27D72CB11B350058F35B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F6C27D62CB11B350058F35B /* Assets.xcassets */; };
 		9F790C312C79F65500FFE335 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F790C302C79F65500FFE335 /* AppDelegate.swift */; };
 		9F790C332C79F65500FFE335 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F790C322C79F65500FFE335 /* SceneDelegate.swift */; };
 		9F790C352C79F65500FFE335 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F790C342C79F65500FFE335 /* ViewController.swift */; };
 		9F790C382C79F65500FFE335 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 9F790C372C79F65500FFE335 /* Base */; };
-		9F790C3A2C79F65600FFE335 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F790C392C79F65600FFE335 /* Assets.xcassets */; };
 		9F790C3D2C79F65600FFE335 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 9F790C3C2C79F65600FFE335 /* Base */; };
 		9F790C482C79F65700FFE335 /* BookTourTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F790C472C79F65700FFE335 /* BookTourTests.swift */; };
 		9F790C522C79F65700FFE335 /* BookTourUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F790C512C79F65700FFE335 /* BookTourUITests.swift */; };
 		9F790C542C79F65700FFE335 /* BookTourUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F790C532C79F65700FFE335 /* BookTourUITestsLaunchTests.swift */; };
+		9F9BC4922CABC2B70095C4A9 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9BC4912CABC2B70095C4A9 /* UserViewController.swift */; };
+		9F9BC4942CABC3660095C4A9 /* ManageTourController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9BC4932CABC3660095C4A9 /* ManageTourController.swift */; };
+		9F9BC4962CABC4290095C4A9 /* ManageScheduleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9BC4952CABC4290095C4A9 /* ManageScheduleController.swift */; };
+		9F9BC4982CABC45F0095C4A9 /* ManageBookTourController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9BC4972CABC45F0095C4A9 /* ManageBookTourController.swift */; };
+		9F9BC49A2CABC7890095C4A9 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9BC4992CABC7890095C4A9 /* UserCell.swift */; };
+		9F9BC49C2CABC80C0095C4A9 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9BC49B2CABC80C0095C4A9 /* UserModel.swift */; };
+		9F9BC49E2CAD20120095C4A9 /* ManageTourCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9BC49D2CAD20120095C4A9 /* ManageTourCell.swift */; };
+		9F9BC4A62CAD2BFC0095C4A9 /* TourFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9BC4A52CAD2BFC0095C4A9 /* TourFormController.swift */; };
+		9F9BC4A82CAD35290095C4A9 /* ManageTourModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9BC4A72CAD35290095C4A9 /* ManageTourModel.swift */; };
 		9FB9954B2CA50F1A00E0A29C /* CartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB9954A2CA50F1A00E0A29C /* CartCell.swift */; };
+		9FB9954D2CA70EFB00E0A29C /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB9954C2CA70EFB00E0A29C /* ScheduleViewController.swift */; };
 		9FC17E482C9739EC00CCD5A9 /* CircleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC17E472C9739EC00CCD5A9 /* CircleCollectionViewCell.swift */; };
+		9FF930A32CAAF0A600B1659E /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF930A22CAAF0A600B1659E /* AdminViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,14 +93,15 @@
 		9F345C582C9EA6EA0089D5F6 /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		9F51A1942C98512700FEAA3F /* TourModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourModel.swift; sourceTree = "<group>"; };
 		9F51A19C2C98761100FEAA3F /* TourCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourCollectionViewCell.swift; sourceTree = "<group>"; };
+		9F6ADC332CAE7072001993B7 /* BookingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingCell.swift; sourceTree = "<group>"; };
 		9F6AFA9D2CA11E18007F2D6A /* UpdateInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateInfoViewController.swift; sourceTree = "<group>"; };
 		9F6AFA9F2CA2764D007F2D6A /* TourDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourDetailViewController.swift; sourceTree = "<group>"; };
+		9F6C27D62CB11B350058F35B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9F790C2D2C79F65500FFE335 /* BookTour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookTour.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F790C302C79F65500FFE335 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F790C322C79F65500FFE335 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9F790C342C79F65500FFE335 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9F790C372C79F65500FFE335 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9F790C392C79F65600FFE335 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9F790C3C2C79F65600FFE335 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F790C3E2C79F65600FFE335 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F790C432C79F65700FFE335 /* BookTourTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookTourTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,8 +109,19 @@
 		9F790C4D2C79F65700FFE335 /* BookTourUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookTourUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F790C512C79F65700FFE335 /* BookTourUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTourUITests.swift; sourceTree = "<group>"; };
 		9F790C532C79F65700FFE335 /* BookTourUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTourUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9F9BC4912CABC2B70095C4A9 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		9F9BC4932CABC3660095C4A9 /* ManageTourController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageTourController.swift; sourceTree = "<group>"; };
+		9F9BC4952CABC4290095C4A9 /* ManageScheduleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageScheduleController.swift; sourceTree = "<group>"; };
+		9F9BC4972CABC45F0095C4A9 /* ManageBookTourController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageBookTourController.swift; sourceTree = "<group>"; };
+		9F9BC4992CABC7890095C4A9 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		9F9BC49B2CABC80C0095C4A9 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		9F9BC49D2CAD20120095C4A9 /* ManageTourCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageTourCell.swift; sourceTree = "<group>"; };
+		9F9BC4A52CAD2BFC0095C4A9 /* TourFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourFormController.swift; sourceTree = "<group>"; };
+		9F9BC4A72CAD35290095C4A9 /* ManageTourModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageTourModel.swift; sourceTree = "<group>"; };
 		9FB9954A2CA50F1A00E0A29C /* CartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCell.swift; sourceTree = "<group>"; };
+		9FB9954C2CA70EFB00E0A29C /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		9FC17E472C9739EC00CCD5A9 /* CircleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleCollectionViewCell.swift; sourceTree = "<group>"; };
+		9FF930A22CAAF0A600B1659E /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +175,7 @@
 		9F790C242C79F65500FFE335 = {
 			isa = PBXGroup;
 			children = (
+				9FF930A42CAAF73900B1659E /* Admin */,
 				9F790C2F2C79F65500FFE335 /* BookTour */,
 				9F790C462C79F65700FFE335 /* BookTourTests */,
 				9F790C502C79F65700FFE335 /* BookTourUITests */,
@@ -177,7 +202,6 @@
 				9F790C362C79F65500FFE335 /* Main.storyboard */,
 				9F2FC19D2C7C541B00352336 /* RegisterViewController.swift */,
 				9F2FC19B2C7C52BA00352336 /* LoginViewController.swift */,
-				9F790C392C79F65600FFE335 /* Assets.xcassets */,
 				9F790C3B2C79F65600FFE335 /* LaunchScreen.storyboard */,
 				9F790C3E2C79F65600FFE335 /* Info.plist */,
 				9F2FC19F2C7C572F00352336 /* GoogleService-Info.plist */,
@@ -191,6 +215,8 @@
 				9F6AFA9D2CA11E18007F2D6A /* UpdateInfoViewController.swift */,
 				9F6AFA9F2CA2764D007F2D6A /* TourDetailViewController.swift */,
 				9FB9954A2CA50F1A00E0A29C /* CartCell.swift */,
+				9FB9954C2CA70EFB00E0A29C /* ScheduleViewController.swift */,
+				9F6C27D62CB11B350058F35B /* Assets.xcassets */,
 			);
 			path = BookTour;
 			sourceTree = "<group>";
@@ -210,6 +236,24 @@
 				9F790C532C79F65700FFE335 /* BookTourUITestsLaunchTests.swift */,
 			);
 			path = BookTourUITests;
+			sourceTree = "<group>";
+		};
+		9FF930A42CAAF73900B1659E /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				9FF930A22CAAF0A600B1659E /* AdminViewController.swift */,
+				9F9BC4912CABC2B70095C4A9 /* UserViewController.swift */,
+				9F9BC4932CABC3660095C4A9 /* ManageTourController.swift */,
+				9F9BC4952CABC4290095C4A9 /* ManageScheduleController.swift */,
+				9F9BC4972CABC45F0095C4A9 /* ManageBookTourController.swift */,
+				9F9BC4992CABC7890095C4A9 /* UserCell.swift */,
+				9F9BC49B2CABC80C0095C4A9 /* UserModel.swift */,
+				9F9BC49D2CAD20120095C4A9 /* ManageTourCell.swift */,
+				9F9BC4A52CAD2BFC0095C4A9 /* TourFormController.swift */,
+				9F9BC4A72CAD35290095C4A9 /* ManageTourModel.swift */,
+				9F6ADC332CAE7072001993B7 /* BookingCell.swift */,
+			);
+			path = Admin;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,10 +388,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F790C3A2C79F65600FFE335 /* Assets.xcassets in Resources */,
 				9F790C3D2C79F65600FFE335 /* Base in Resources */,
 				9F790C382C79F65500FFE335 /* Base in Resources */,
 				9F2FC1A02C7C572F00352336 /* GoogleService-Info.plist in Resources */,
+				9F6C27D72CB11B350058F35B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,20 +417,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F51A19D2C98761100FEAA3F /* TourCollectionViewCell.swift in Sources */,
+				9F9BC4A62CAD2BFC0095C4A9 /* TourFormController.swift in Sources */,
+				9F9BC4922CABC2B70095C4A9 /* UserViewController.swift in Sources */,
+				9F9BC49E2CAD20120095C4A9 /* ManageTourCell.swift in Sources */,
 				9FB9954B2CA50F1A00E0A29C /* CartCell.swift in Sources */,
+				9F9BC4942CABC3660095C4A9 /* ManageTourController.swift in Sources */,
+				9FF930A32CAAF0A600B1659E /* AdminViewController.swift in Sources */,
 				9F345C592C9EA6EA0089D5F6 /* TabController.swift in Sources */,
+				9FB9954D2CA70EFB00E0A29C /* ScheduleViewController.swift in Sources */,
 				9F345C532C9EA3740089D5F6 /* AccountController.swift in Sources */,
+				9F9BC49C2CABC80C0095C4A9 /* UserModel.swift in Sources */,
+				9F9BC4982CABC45F0095C4A9 /* ManageBookTourController.swift in Sources */,
 				9F2FC19C2C7C52BA00352336 /* LoginViewController.swift in Sources */,
 				9F2FC19E2C7C541B00352336 /* RegisterViewController.swift in Sources */,
 				9FC17E482C9739EC00CCD5A9 /* CircleCollectionViewCell.swift in Sources */,
 				9F790C352C79F65500FFE335 /* ViewController.swift in Sources */,
+				9F9BC4A82CAD35290095C4A9 /* ManageTourModel.swift in Sources */,
 				9F51A1952C98512700FEAA3F /* TourModel.swift in Sources */,
 				9F790C312C79F65500FFE335 /* AppDelegate.swift in Sources */,
 				9F345C552C9EA3B90089D5F6 /* HistoryController.swift in Sources */,
+				9F9BC4962CABC4290095C4A9 /* ManageScheduleController.swift in Sources */,
 				9F345C512C9EA32D0089D5F6 /* CartController.swift in Sources */,
 				9F6AFAA02CA2764D007F2D6A /* TourDetailViewController.swift in Sources */,
 				9F6AFA9E2CA11E18007F2D6A /* UpdateInfoViewController.swift in Sources */,
+				9F9BC49A2CABC7890095C4A9 /* UserCell.swift in Sources */,
 				9F790C332C79F65500FFE335 /* SceneDelegate.swift in Sources */,
+				9F6ADC342CAE7072001993B7 /* BookingCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

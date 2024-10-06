@@ -1,4 +1,6 @@
 import UIKit
+import FirebaseFirestore
+import FirebaseAuth
 
 class CartCell: UITableViewCell {
     
@@ -35,28 +37,26 @@ class CartCell: UITableViewCell {
         return button
     }()
     
-    // Nhãn hiển thị số lượng sản phẩm
+    // Cập nhật font size lớn hơn
     let quantityLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18)
-        label.text = "1" // Số lượng mặc định là 1
+        label.font = UIFont.systemFont(ofSize: 15) // Tăng font size
+        label.text = "1"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    // Nhãn hiển thị tên tour
     let tourNameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.font = UIFont.boldSystemFont(ofSize: 15) // Tăng font size
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    // Nhãn hiển thị giá tiền
     let priceLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18)
-        label.textColor = .systemRed // Màu đỏ cho giá tiền
+        label.font = UIFont.systemFont(ofSize: 15) // Tăng font size
+        label.textColor = .systemRed
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -64,6 +64,12 @@ class CartCell: UITableViewCell {
     // Closure để xử lý khi số lượng thay đổi
     var onQuantityChange: ((Int) -> Void)?
     
+    // Document ID của tour để xoá
+    var tourDocumentID: String?
+    
+    // Index của item trong mảng
+    var itemIndex: Int?
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .white // Màu nền trắng cho cell
@@ -79,6 +85,13 @@ class CartCell: UITableViewCell {
         // Gán hành động khi bấm nút tăng/giảm số lượng
         decreaseButton.addTarget(self, action: #selector(decreaseQuantity), for: .touchUpInside)
         increaseButton.addTarget(self, action: #selector(increaseQuantity), for: .touchUpInside)
+        
+        // Thêm nút xoá vào nội dung của cell
+        contentView.addSubview(deleteButton)
+        
+        // Gán hành động khi bấm nút xoá
+        deleteButton.backgroundColor = UIColor.yellow.withAlphaComponent(0.5)
+        deleteButton.addTarget(self, action: #selector(deleteTapped), for: .touchUpInside)
         
         // Thiết lập layout cho các phần tử trong cell
         setupLayout()
@@ -106,77 +119,137 @@ class CartCell: UITableViewCell {
         onQuantityChange?(currentQuantity) // Gọi closure khi số lượng thay đổi
     }
     
+    // Nút xoá
+    let deleteButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("X", for: .normal)
+        button.setTitleColor(.red, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    // Closure để xử lý khi nút xoá được bấm
+    var onDeleteTapped: (() -> Void)?
+    
+    @objc private func deleteTapped() {
+        guard let documentID = tourDocumentID,
+              let itemIndex = itemIndex else { return }
+        
+        let db = Firestore.firestore()
+        let cartRef = db.collection("Cart").document(documentID)
+        
+        // Lấy document để cập nhật mảng
+        cartRef.getDocument { [weak self] (documentSnapshot, error) in
+            if let error = error {
+                print("Error getting document: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let document = documentSnapshot, let data = document.data() else {
+                print("Document does not exist or has no data")
+                return
+            }
+            
+            // Kiểm tra và lấy items
+            guard var items = data["items"] as? [[String: Any]] else {
+                print("No items found")
+                return
+            }
+
+            // Kiểm tra chỉ số và xoá item
+            if items.indices.contains(itemIndex) {
+                items.remove(at: itemIndex) // Xoá item tại chỉ số cần thiết
+                
+                // Cập nhật lại document trong Firestore
+                cartRef.updateData(["items": items]) { error in
+                    if let error = error {
+                        print("Error updating document: \(error.localizedDescription)")
+                    } else {
+                        print("Item successfully removed")
+                        self?.onDeleteTapped?() // Gọi closure khi xoá thành công
+                    }
+                }
+            } else {
+                print("Item không tồn tại tại chỉ số \(itemIndex)")
+            }
+        }
+    }
+
     // Thiết lập layout cho các phần tử trong cell
     private func setupLayout() {
         NSLayoutConstraint.activate([
             // ImageView hiển thị hình ảnh tour
-            tourImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            tourImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
             tourImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             tourImageView.widthAnchor.constraint(equalToConstant: 80),
             tourImageView.heightAnchor.constraint(equalToConstant: 80),
             
+            // Nhãn tên tour
+            tourNameLabel.leadingAnchor.constraint(equalTo: tourImageView.trailingAnchor, constant: 15),
+            tourNameLabel.trailingAnchor.constraint(equalTo: deleteButton.leadingAnchor, constant: -10),
+            tourNameLabel.topAnchor.constraint(equalTo: tourImageView.topAnchor),
+            
+            priceLabel.leadingAnchor.constraint(equalTo: tourNameLabel.leadingAnchor),
+            priceLabel.topAnchor.constraint(equalTo: tourNameLabel.bottomAnchor, constant: 5),
+            priceLabel.bottomAnchor.constraint(equalTo: tourImageView.bottomAnchor),
+            
             // Nút giảm số lượng
-            decreaseButton.leadingAnchor.constraint(equalTo: tourImageView.trailingAnchor, constant: 20),
+            decreaseButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -65),
             decreaseButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             decreaseButton.widthAnchor.constraint(equalToConstant: 30),
+            decreaseButton.heightAnchor.constraint(equalToConstant: 30),
             
-            // Nhãn hiển thị số lượng
-            quantityLabel.leadingAnchor.constraint(equalTo: decreaseButton.trailingAnchor, constant: 10),
+            // Nhãn số lượng
+            quantityLabel.trailingAnchor.constraint(equalTo: decreaseButton.leadingAnchor, constant: -10),
             quantityLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             
             // Nút tăng số lượng
-            increaseButton.leadingAnchor.constraint(equalTo: quantityLabel.trailingAnchor, constant: 10),
+            increaseButton.trailingAnchor.constraint(equalTo: quantityLabel.leadingAnchor, constant: -10),
             increaseButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             increaseButton.widthAnchor.constraint(equalToConstant: 30),
+            increaseButton.heightAnchor.constraint(equalToConstant: 30),
             
-            // Nhãn tên tour
-            tourNameLabel.leadingAnchor.constraint(equalTo: increaseButton.trailingAnchor, constant: 20),
-            tourNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            tourNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            
-            // Nhãn hiển thị giá tiền
-            priceLabel.leadingAnchor.constraint(equalTo: tourNameLabel.leadingAnchor),
-            priceLabel.topAnchor.constraint(equalTo: tourNameLabel.bottomAnchor, constant: 5),
-            priceLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
+            // Nút xoá
+            deleteButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
+            deleteButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            deleteButton.widthAnchor.constraint(equalToConstant: 30),
+            deleteButton.heightAnchor.constraint(equalToConstant: 30)
         ])
     }
     
     // Hàm cấu hình cell với dữ liệu
-    func configure(with tour: [String: Any]) {
+    func configure(with tour: [String: Any], documentID: String, itemIndex: Int) {
+        self.tourDocumentID = documentID
+        self.itemIndex = itemIndex
+        
+        // Lấy dữ liệu từ Firestore
         if let name = tour["tenTour"] as? String,
            let quantity = tour["soLuong"] as? Int,
            let price = tour["giaTour"] as? String,
-           let imageURLString = tour["hinhTour"] as? String,
-           let imageURL = URL(string: imageURLString) {
+           let imageString = tour["HinhTour"] as? String,
+           let imageURL = URL(string: imageString) {
             
             tourNameLabel.text = name
             quantityLabel.text = "\(quantity)"
             priceLabel.text = price
             
             // Tải hình ảnh từ URL
-            URLSession.shared.dataTask(with: imageURL) { (data, response, error) in
-                if let error = error {
-                    print("Error loading image: \(error.localizedDescription)")
-                    return
-                }
-                
-                guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-                    print("HTTP Status Code: \((response as? HTTPURLResponse)?.statusCode ?? -1)")
-                    return
-                }
-                
-                guard let data = data, let image = UIImage(data: data) else {
-                    print("Error converting data to image or no data received.")
-                    return
-                }
-                
-                DispatchQueue.main.async {
-                    self.tourImageView.image = image
-                }
-            }.resume()
+            tourImageView.load(url: imageURL)
+        }
+    }
+}
 
-        } else {
-            print("Invalid tour data.")
+// Extension để tải hình ảnh từ URL
+extension UIImageView {
+    func load(url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+            }
         }
     }
 }

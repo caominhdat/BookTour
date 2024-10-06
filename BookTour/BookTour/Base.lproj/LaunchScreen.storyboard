@@ -20,10 +20,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="AppIconImage" translatesAutoresizingMaskIntoConstraints="NO" id="Rhc-JI-j0B">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="AppIconImage" translatesAutoresizingMaskIntoConstraints="NO" id="Rhc-JI-j0B">
+                                        <rect key="frame" x="0.0" y="-57" width="393" height="909"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <rect key="contentStretch" x="1" y="0.14999999999999999" width="1" height="1"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.56898486609999999" green="0.69324624540000002" blue="0.76079779859999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
